@@ -1,0 +1,215 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/22/2023  13:49:20  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\8051_4 way traffic light.obj TO .\Objects\8051_4 way traffic light PRINT (.\Listin
+>> gs\8051_4 way traffic light.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\8051_4 way traffic light.obj (8051_4_WAY_TRAFFIC_LIGHT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\8051_4 way traffic light (8051_4_WAY_TRAFFIC_LIGHT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0015H     UNIT         ?DT?8051_4_WAY_TRAFFIC_LIGHT
+            DATA    001DH     0002H     UNIT         _DATA_GROUP_
+            IDATA   001FH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00B9H     UNIT         ?PR?MAIN?8051_4_WAY_TRAFFIC_LIGHT
+            CODE    08B9H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0945H     0055H     UNIT         ?C?LIB_CODE
+            CODE    099AH     002CH     UNIT         ?PR?_DELAY?8051_4_WAY_TRAFFIC_LIGHT
+            CODE    09C6H     0017H     UNIT         ?C_INITSEG
+            CODE    09DDH     0016H     UNIT         ?PR?COUNT_5?8051_4_WAY_TRAFFIC_LIGHT
+            CODE    09F3H     0016H     UNIT         ?PR?COUNT_9?8051_4_WAY_TRAFFIC_LIGHT
+            CODE    0A09H     0016H     UNIT         ?PR?COUNT_14?8051_4_WAY_TRAFFIC_LIGHT
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\8051_4 way traffic light (8051_4_WAY_TRAFFIC_LIGHT)
+
+
+SEGMENT                                         DATA_GROUP 
+  +--> CALLED SEGMENT                         START    LENGTH
+-------------------------------------------------------------
+?C_C51STARTUP                                 -----    -----
+  +--> ?PR?MAIN?8051_4_WAY_TRAFFIC_LIGHT
+  +--> ?C_INITSEG
+
+?PR?MAIN?8051_4_WAY_TRAFFIC_LIGHT             001DH    0002H
+  +--> ?PR?_DELAY?8051_4_WAY_TRAFFIC_LIGHT
+  +--> ?PR?COUNT_9?8051_4_WAY_TRAFFIC_LIGHT
+  +--> ?PR?COUNT_5?8051_4_WAY_TRAFFIC_LIGHT
+
+?PR?COUNT_9?8051_4_WAY_TRAFFIC_LIGHT          -----    -----
+  +--> ?PR?_DELAY?8051_4_WAY_TRAFFIC_LIGHT
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/22/2023  13:49:20  PAGE 2
+
+
+
+?PR?COUNT_5?8051_4_WAY_TRAFFIC_LIGHT          -----    -----
+  +--> ?PR?_DELAY?8051_4_WAY_TRAFFIC_LIGHT
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\8051_4 way traffic light (8051_4_WAY_TRAFFIC_LIGHT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        8051_4_WAY_TRAFFIC_LIGHT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:09A6H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  B:00B0H.0       PUBLIC        s1
+  B:00B0H.1       PUBLIC        s2
+  B:00B0H.2       PUBLIC        s3
+  C:0800H         PUBLIC        main
+  B:00B0H.3       PUBLIC        s4
+  B:0090H.2       PUBLIC        G13
+  B:0090H.5       PUBLIC        G24
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0090H.0       PUBLIC        R13
+  B:0090H.3       PUBLIC        R24
+  B:0090H.1       PUBLIC        Y13
+  B:0090H.4       PUBLIC        Y24
+  C:09DDH         PUBLIC        count_5
+  C:09F3H         PUBLIC        count_9
+  D:0008H         PUBLIC        arr
+  D:001CH         PUBLIC        a
+  D:00C8H         PUBLIC        T2CON
+  C:0A09H         PUBLIC        count_14
+  D:00D0H         PUBLIC        PSW
+  C:099AH         SYMBOL        L?0030
+  C:099EH         SYMBOL        L?0031
+  -------         PROC          L?0029
+  -------         ENDPROC       L?0029
+  C:099AH         SYMBOL        L?0030
+  C:099EH         SYMBOL        L?0031
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        itime
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:09A6H         LINE#         20
+  C:09A6H         LINE#         22
+  C:09B0H         LINE#         23
+  C:09B3H         LINE#         24
+  C:09B3H         LINE#         25
+  C:09BEH         LINE#         26
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/22/2023  13:49:20  PAGE 3
+
+
+  C:09C5H         LINE#         27
+  -------         ENDPROC       _DELAY
+  -------         PROC          COUNT_5
+  C:09DDH         LINE#         28
+  C:09DDH         LINE#         29
+  C:09EBH         LINE#         30
+  C:09EBH         LINE#         31
+  C:09EEH         LINE#         32
+  C:09F2H         LINE#         33
+  -------         ENDPROC       COUNT_5
+  -------         PROC          COUNT_9
+  C:09F3H         LINE#         35
+  C:09F3H         LINE#         36
+  C:0A01H         LINE#         37
+  C:0A01H         LINE#         38
+  C:0A04H         LINE#         39
+  C:0A08H         LINE#         40
+  -------         ENDPROC       COUNT_9
+  -------         PROC          COUNT_14
+  C:0A09H         LINE#         41
+  C:0A09H         LINE#         42
+  C:0A17H         LINE#         43
+  C:0A17H         LINE#         44
+  C:0A1AH         LINE#         45
+  C:0A1EH         LINE#         46
+  -------         ENDPROC       COUNT_14
+  -------         PROC          MAIN
+  -------         DO            
+  D:0082H         SYMBOL        loop
+  D:001DH         SYMBOL        loop2
+  -------         ENDDO         
+  C:0800H         LINE#         47
+  C:0800H         LINE#         48
+  C:0800H         LINE#         49
+  C:0800H         LINE#         50
+  C:0803H         LINE#         51
+  C:0806H         LINE#         52
+  C:080DH         LINE#         54
+  C:0810H         LINE#         55
+  C:0810H         LINE#         56
+  C:081FH         LINE#         58
+  C:0821H         LINE#         59
+  C:0823H         LINE#         60
+  C:0825H         LINE#         61
+  C:0827H         LINE#         62
+  C:082BH         LINE#         63
+  C:082EH         LINE#         65
+  C:083DH         LINE#         66
+  C:083FH         LINE#         67
+  C:0841H         LINE#         68
+  C:0843H         LINE#         69
+  C:0845H         LINE#         70
+  C:0848H         LINE#         71
+  C:084BH         LINE#         72
+  C:0851H         LINE#         73
+  C:0857H         LINE#         74
+  C:085AH         LINE#         75
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/22/2023  13:49:20  PAGE 4
+
+
+  C:0860H         LINE#         76
+  C:0866H         LINE#         77
+  C:0869H         LINE#         78
+  C:086FH         LINE#         79
+  C:0875H         LINE#         80
+  C:0878H         LINE#         82
+  C:087EH         LINE#         83
+  C:0884H         LINE#         84
+  C:0887H         LINE#         85
+  C:088DH         LINE#         86
+  C:0893H         LINE#         87
+  C:0896H         LINE#         88
+  C:089CH         LINE#         89
+  C:08A2H         LINE#         90
+  C:08A5H         LINE#         91
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        8051_4_WAY_TRAFFIC_LIGHT
+
+  -------         MODULE        ?C?UIDIV
+  C:0945H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?COUNT_14?8051_4_WAY_TRAFFIC_LIGHT
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 013DH BYTE (15%) *
+******************************************************************************
+
+Program Size: data=32.0 xdata=0 code=546
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

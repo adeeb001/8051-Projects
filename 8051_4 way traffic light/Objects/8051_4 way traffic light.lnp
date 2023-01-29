@@ -1,0 +1,3 @@
+".\Objects\8051_4 way traffic light.obj" 
+TO ".\Objects\8051_4 way traffic light" 
+PRINT(".\Listings\8051_4 way traffic light.m51") RAMSIZE(256) 

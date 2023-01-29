@@ -1,0 +1,120 @@
+C51 COMPILER V9.60.0.0   8051_4_WAY_TRAFFIC_LIGHT                                          01/22/2023 13:49:19 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE 8051_4_WAY_TRAFFIC_LIGHT
+OBJECT MODULE PLACED IN .\Objects\8051_4 way traffic light.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE 8051_4 way traffic light.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND P
+                    -RINT(.\Listings\8051_4 way traffic light.lst) TABS(2) OBJECT(.\Objects\8051_4 way traffic light.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define segment P2
+   3          
+   4          sbit R13 = P1^0;
+   5          sbit Y13 = P1^1;
+   6          sbit G13 = P1^2;
+   7          
+   8          sbit R24 = P1^3;
+   9          sbit Y24 = P1^4;
+  10          sbit G24 = P1^5;
+  11          
+  12          sbit s1 = P3^0; //cc
+  13          sbit s2 = P3^1; //cc
+  14          sbit s3 = P3^2; //cc
+  15          sbit s4 = P3^3; //cc
+  16          
+  17          unsigned char arr[20]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
+  18          unsigned char a;
+  19            
+  20            void delay(unsigned int itime){
+  21   1          unsigned int i,j;
+  22   1          for(i=0;i<itime;i++){
+  23   2            for(j=0;j<1275;j++)
+  24   2            {
+  25   3            }
+  26   2          }
+  27   1        }
+  28          void count_5(){
+  29   1        for (a=5; a>0; a--){
+  30   2          segment=arr[a];
+  31   2          delay(100);
+  32   2        }
+  33   1      }
+  34          
+  35          void count_9(){
+  36   1        for (a=9; a>0; a--){
+  37   2          segment=arr[a];
+  38   2          delay(100);
+  39   2        }
+  40   1      }
+  41          void count_14(){
+  42   1        for (a=14; a>0; a--){
+  43   2          segment=arr[a];
+  44   2          delay(100);
+  45   2        }
+  46   1      }
+  47           void main (void){
+  48   1        unsigned int loop=0,loop2;
+  49   1      while(1){
+  50   2            segment = arr[0]; // send zero
+  51   2      P2=0xff; // all leds will be off initially
+  52   2      delay(200);
+  53   2        
+  54   2         for(loop=100; loop>0; loop--)
+C51 COMPILER V9.60.0.0   8051_4_WAY_TRAFFIC_LIGHT                                          01/22/2023 13:49:19 PAGE 2   
+
+  55   2          {
+  56   3            loop2 = loop % 10; // 12%10 =2
+  57   3            
+  58   3            s1 = 0; //off
+  59   3            s2 = 1;//on
+  60   3            s3 = 0;
+  61   3            s4 = 1;
+  62   3            segment = arr[loop2];
+  63   3            delay(100);
+  64   3            
+  65   3            loop2 = loop / 10; //12/10= 1
+  66   3            s1 = 1; //off
+  67   3            s2 = 0;
+  68   3            s3 = 1;
+  69   3            s4 = 0;
+  70   3            segment = arr[loop2];
+  71   3            delay(100);
+  72   3            Y13=0; G13=0; R13=1; 
+  73   3        Y24=0; G24=1; R24=0;
+  74   3      count_9();
+  75   3      Y13=1; G13=0; R13=0; 
+  76   3        Y24=0; G24=0; R24=1;
+  77   3      count_5();
+  78   3      Y13=0; G13=1; R13=0; 
+  79   3        Y24=0; G24=0; R24=1;
+  80   3            count_9();
+  81   3            
+  82   3            Y24=0; G24=0; R24=1; 
+  83   3        Y13=0; G13=1; R13=0; 
+  84   3      count_9();
+  85   3      Y24=1; G24=0; R24=0; 
+  86   3        Y13=0; G13=0; R13=1; 
+  87   3      count_5();
+  88   3      Y24=0; G24=1; R24=0; 
+  89   3        Y13=0; G13=0; R13=1; 
+  90   3      count_9();
+  91   3          }
+  92   2      }
+  93   1      }
+  94            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    295    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     21       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
