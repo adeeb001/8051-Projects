@@ -1,0 +1,187 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/02/2023  13:18:18  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\8051_TLC.obj TO .\Objects\8051_TLC PRINT (.\Listings\8051_TLC.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\8051_TLC.obj (8051_TLC)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\8051_TLC (8051_TLC)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000BH     UNIT         ?DT?8051_TLC
+            IDATA   0013H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     07FAH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0050H     UNIT         ?PR?EXTERNAL0_ISR?8051_TLC
+            CODE    08DCH     002CH     UNIT         ?PR?_DELAY?8051_TLC
+            CODE    0908H     001AH     UNIT         ?PR?MAIN?8051_TLC
+            CODE    0922H     0016H     UNIT         ?PR?COUNT_5?8051_TLC
+            CODE    0938H     0016H     UNIT         ?PR?COUNT_9?8051_TLC
+            CODE    094EH     000DH     UNIT         ?C_INITSEG
+            CODE    095BH     0005H     UNIT         ?PR?EXT_INT_INIT?8051_TLC
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\8051_TLC (8051_TLC)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?EXTERNAL0_ISR?8051_TLC
+  +--> ?PR?_DELAY?8051_TLC
+  +--> ?PR?COUNT_5?8051_TLC
+  +--> ?PR?COUNT_9?8051_TLC
+
+?PR?COUNT_5?8051_TLC
+  +--> ?PR?_DELAY?8051_TLC
+
+?PR?COUNT_9?8051_TLC
+  +--> ?PR?_DELAY?8051_TLC
+
+*** NEW ROOT ***************************************************
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/02/2023  13:18:18  PAGE 2
+
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?8051_TLC
+  +--> ?C_INITSEG
+
+?PR?MAIN?8051_TLC
+  +--> ?PR?EXT_INT_INIT?8051_TLC
+  +--> ?PR?_DELAY?8051_TLC
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\8051_TLC (8051_TLC)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        8051_TLC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:08E8H         PUBLIC        _delay
+  B:00A0H.1       PUBLIC        green
+  B:00A0H.0       PUBLIC        yellow
+  C:0908H         PUBLIC        main
+  B:00A0H.2       PUBLIC        red
+  C:0922H         PUBLIC        count_5
+  C:0938H         PUBLIC        count_9
+  D:0008H         PUBLIC        arr
+  C:088CH         PUBLIC        External0_ISR
+  B:00A8H.0       PUBLIC        EX0
+  C:095BH         PUBLIC        Ext_int_Init
+  D:0012H         PUBLIC        a
+  -------         PROC          EXT_INT_INIT
+  C:095BH         LINE#         9
+  C:095BH         LINE#         10
+  C:095DH         LINE#         11
+  C:095FH         LINE#         12
+  -------         ENDPROC       EXT_INT_INIT
+  C:08E4H         SYMBOL        L?0024
+  -------         PROC          L?0023
+  -------         ENDPROC       L?0023
+  C:08E4H         SYMBOL        L?0024
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        itime
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:08E8H         LINE#         13
+  C:08E8H         LINE#         15
+  C:08F2H         LINE#         16
+  C:08F5H         LINE#         17
+  C:08F5H         LINE#         18
+  C:0900H         LINE#         19
+  C:0907H         LINE#         20
+  -------         ENDPROC       _DELAY
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/02/2023  13:18:18  PAGE 3
+
+
+  -------         PROC          COUNT_5
+  C:0922H         LINE#         21
+  C:0922H         LINE#         22
+  C:0930H         LINE#         23
+  C:0930H         LINE#         24
+  C:0930H         LINE#         25
+  C:0933H         LINE#         26
+  C:0937H         LINE#         27
+  -------         ENDPROC       COUNT_5
+  -------         PROC          COUNT_9
+  C:0938H         LINE#         28
+  C:0938H         LINE#         29
+  C:0946H         LINE#         30
+  C:0946H         LINE#         31
+  C:0946H         LINE#         32
+  C:0949H         LINE#         33
+  C:094DH         LINE#         34
+  -------         ENDPROC       COUNT_9
+  -------         PROC          MAIN
+  C:0908H         LINE#         35
+  C:0908H         LINE#         36
+  C:0908H         LINE#         37
+  C:090BH         LINE#         38
+  C:090EH         LINE#         39
+  C:0910H         LINE#         40
+  C:0912H         LINE#         41
+  C:0914H         LINE#         42
+  C:0917H         LINE#         43
+  C:0919H         LINE#         44
+  C:091BH         LINE#         45
+  C:091DH         LINE#         46
+  C:0920H         LINE#         47
+  -------         ENDPROC       MAIN
+  -------         PROC          EXTERNAL0_ISR
+  C:088CH         LINE#         49
+  C:08A1H         LINE#         50
+  C:08A4H         LINE#         51
+  C:08A7H         LINE#         52
+  C:08AEH         LINE#         53
+  C:08B0H         LINE#         54
+  C:08B2H         LINE#         55
+  C:08B4H         LINE#         56
+  C:08B7H         LINE#         57
+  C:08B9H         LINE#         58
+  C:08BBH         LINE#         59
+  C:08BDH         LINE#         60
+  C:08C0H         LINE#         61
+  C:08C2H         LINE#         62
+  C:08C4H         LINE#         63
+  C:08C6H         LINE#         64
+  C:08C9H         LINE#         65
+  -------         ENDPROC       EXTERNAL0_ISR
+  -------         ENDMOD        8051_TLC
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00D6H BYTE (10%) *
+******************************************************************************
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/02/2023  13:18:18  PAGE 4
+
+
+
+Program Size: data=20.0 xdata=0 code=358
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
